@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="Stopwatch.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.container{
+    background-color: #222242;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+}
+.wrapper{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.wrapper p{
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    z-index: 9999;
+    font-size: 48px;
+    margin-bottom: 120px;
+}
+.wrapper p::before{
+    content: '';
+    position: absolute;
+    width: 265px;
+    height: 265px;
+    background-color: #151538;
+    z-index: -1;
+    border-radius: 80%;
+	left: -2.5%;
+    top: -200%;
+    animation-name: shine;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes shine{
+    0%,100%{
+        box-shadow: 0px 0px 32px -12px rgba(246, 180, 0, .5);
+    }
+    50%{
+        box-shadow: 0px 0px 32px 3px rgba(246, 180, 0, .5);
+    }
+}
+button{
+    background-color: #222242;
+    padding: 10px 38px;
+    border: 1px solid #A9A9A9;
+    border-radius: 28px;
+    color: #fff;
+    transition: all .2s ease;
+    outline: 0;
+}
+button:not(:last-child){
+    margin-right: 20px;
+}
+button:hover,
+button:focus
+{
+    border-color: #F6B400;
+    color: #F6B400;
+    box-shadow: 0px 4px 27px -12px #F6B400;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <p>
+                <span class="hrs">00</span>:<span class="mins">00</span>:<span class="seconds">00</span>:<span class="millis">00</span>
+            </p> <br>
+            <button class="btn-start">Start</button>
+            <button class="btn-stop">Stop</button>
+            <button class="btn-reset">Reset</button>
+        </div>
+    </div>
+
+
+
+
+    <script >
+let seconds = 0;
+let millis = 0;
+let mins = 0;
+let hrs = 0;
+let getSeconds = document.querySelector('.seconds');
+let getMillis = document.querySelector('.millis');
+let getMins = document.querySelector('.mins');
+let getHrs = document.querySelector('.hrs');
+let btnStart = document.querySelector('.btn-start');
+let btnStop = document.querySelector('.btn-stop');
+let btnReset = document.querySelector('.btn-reset');
+let interval;
+
+btnStart.addEventListener('click', () => {
+    clearInterval(interval);
+    inverval = setInterval(startTimer, 10);
+})
+btnStop.addEventListener('click', () => {
+    clearInterval(inverval);
+})
+btnReset.addEventListener('click', () => {
+    clearInterval(inverval);
+    millis = '00';
+    seconds = '00';
+    mins = '00';
+    hrs = '00';
+    getSeconds.innerHTML = seconds;
+    getMillis.innerHTML = millis;
+    getMins.innerHTML = mins;
+    getHrs.innerHTML = hrs;
+})
+
+function startTimer(){
+    millis++;
+    if(millis <= 9){
+        getMillis.innerHTML = '0' + millis;
+    }
+    if(millis > 9){
+        getMillis.innerHTML = millis;
+    }
+    if(millis > 99){
+        seconds++;
+        getSeconds.innerHTML = '0' + seconds;
+        millis = 0;
+        getMillis.innerHTML = '0' + 0;
+    }
+    if(seconds > 9){
+        getSeconds.innerHTML = seconds;
+    }
+    if(seconds > 59){
+        mins++;
+        getMins.innerHTML = '0' + mins;
+        seconds = 0;
+        getSeconds.innerHTML = '0' + 0;
+    }
+    if(mins > 9){
+        getSeconds.innerHTML = mins;
+    }
+    if(mins > 59){
+        hrs++;
+        getHrs.innerHTML = '0' + hrs;
+        mins = 0;
+        getMins.innerHTML = '0' + 0;
+        seconds = 0;
+        getSeconds.innerHTML = '0' + 0;
+    }
+    if(hrs > 9){
+        getMins.innerHTML = hrs;
+    }
+}
+    </script>
+</body>
+</html>

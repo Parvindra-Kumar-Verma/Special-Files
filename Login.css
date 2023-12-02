@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+form {
+    width: 350px;
+    margin: 0 auto;
+    background-color: #6AB187;
+    padding: 10px;
+    border-radius: 3px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+#fn, #email, #pwd, #cnpwd{
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.error {
+    color: red;
+    font-size: 14px;
+}
+#btn, #can{
+    height: 30px;
+}
+div {
+    margin-top: 3px;
+    border-top: 1px solid #ccc;
+    padding-top: 3px;
+}

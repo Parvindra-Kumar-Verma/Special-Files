@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+
+
+            height: 100%;
+            width: 100%;
+
+        }
+
+        #container {
+            border: 2px solid black;
+            height: 400px;
+            width: 400px;
+            display: flex;
+            margin: auto;
+            position: relative;
+            top: 55px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        select {
+            height: 35px;
+            width: 200px;
+        }
+
+        #heading-line {
+            position: relative;
+            left: 580px;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="main">
+        <h1 id="heading-line">Pattern Generator</h1>
+        <div id="container">
+
+            <table>
+                <tr>
+                    <td> <label for="pattern">Select the Alphabet : </label></td>
+                    <td> <select name="pattern" id="alphabet-input">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="G">G</option>
+                            <option value="H">H</option>
+                            <option value="I">I</option>
+                            <option value="J">J</option>
+                            <option value="K">K</option>
+                            <option value="L">L</option>
+                            <option value="M">M</option>
+                            <option value="N">N</option>
+                            <option value="O">O</option>
+                            <option value="P">P</option>
+                            <option value="Q">Q</option>
+                            <option value="R">R</option>
+                            <option value="S">S</option>
+                            <option value="T">T</option>
+                            <option value="U">U</option>
+                            <option value="W">W</option>
+                            <option value="X">X</option>
+                            <option value="Y">Y</option>
+                            <option value="Z">Z</option>
+                        </select> </td>
+                </tr>
+                <br> <br>
+
+                <tr>
+                    <td><label for="size">Select the Size : </label></td>
+                    <td> <select name="size" id="size-input">
+                            <option value="11">Large</option>
+                            <option value="9">Medium</option>
+                            <option value="7">small</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="submit" id="button"></td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <pre id="diplay"></pre>
+    </nav>
+
+
+
+    <script>
+        var display = document.getElementById("display")
+
+        button.addEventListener("click", () => {
+
+            var size = + (document.getElementById("size-input").value)
+            var font = document.getElementById("alphabet-input").value
+            var half = parseInt(size / 2) + 1;
+
+            var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+
+            if (font == alphabet[0]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || j == size || i == half || i == 1) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+                display.innerHTML(str)
+            }
+
+
+            else if (font == alphabet[1]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == 1 && j < size) || j == 1 || (i == half && j < size) || (i == size && j < size) || (i <= half - 1 && j == size && i != 1) || ((i >= half + 1) && j == size && i != size)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[2]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((j == 1 && i != 1 && i != size) || (i == 1 && j != 1) || (i == size && j != 1)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[3]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i == 1 && j != size) || (j == size && i != 1 && i != size) || (i == size && j != size)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else if (font == alphabet[4]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i == 1) || (i == half && j != size) || (i == size)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[5]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i == 1) || (i == half && j != size)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else if (font == alphabet[6]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || i == size || (j == size && i > half) || (i == 1 && j < size) || (i == half && j >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else if (font == alphabet[7]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || j == size || (i == half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[8]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (i == 1 || i == size || (j == half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[9]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((j == half && i <= size) || i == 1 || (i == size && j < half) || (j == 1 && i > half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[10]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i + j == size + 1 && i <= half) || (i === j && i >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+
+            }
+            else if (font == alphabet[11]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || i == size) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[12]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || j == size || (i == j && j <= half) || (i + j == size + 1 && j >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[13]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || j == size || (i == j)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[14]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((j == 1 && i < size && i != 1) || (j == size && i < size && i != 1) || (i == 1 && j < size && j != 1) || (i == size && j < size && j != 1)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[15]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i == 1 && j < size) || (i == half && j < size) || (j == size && i < half && i != 1)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[16]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((j == 1 && i < size && i != 1) || (j == size && i < size && i != 1) || (i == 1 && j < size && j != 1) || (i == size && j < size && j != 1) || (i == j && i > half && j > half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else if (font == alphabet[17]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || (i == 1 && j < size) || (i == half && j < size) || (j == size && i < half && i != 1) || (i == j && i >= half && j >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[18]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (i == 1 || i == size || (i == half && j < size && j != 1)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[19]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (i == 1 || (j == half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[20]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (j == 1 || j == size || (i == size)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else if (font == alphabet[21]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == j && j <= half) || (i + j == size + 1 && j >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[22]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == j && j <= half - 2) || (i + j == size + 1 && j >= half + 2)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[23]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == j) || (i + j == size + 1)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+            else if (font == alphabet[24]) {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == j && j <= half) || (i + j == size + 1 && j >= half) || (j == half && i >= half)) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+            else {
+                var str = ""
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if ((i == 1) || (i + j == size + 1) || i == size) {
+                            str = str + "*"
+                        }
+                        else {
+                            str = str + " "
+                        }
+
+                    }
+                    str = str + ("\n")
+                }
+                console.log(str);
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

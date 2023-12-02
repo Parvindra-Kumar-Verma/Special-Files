@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <h2 style="text-align: center;">SIGN IN</h2>
+    <form>
+        <label for="fn">Full Name:</label>
+        <input id="fn" type="text" placeholder="Full Name" required>
+        <div class="error" id="nameerror"></div>
+
+        <label for="email">Email ID:</label>
+        <input id="email" type="email" placeholder="abc@abc.com" required>
+        <div class="error" id="emailerror"></div>
+
+        <label for="pwd">Password:</label>
+        <input id="pwd" type="text" placeholder="Password" required>
+        <div class="error" id="pwderror"></div>
+
+        <label for="cnpwd">Confirm Password:</label>
+        <input id="cnpwd" type="password" placeholder="Confirm Password" required>
+        <div class="error" id="comerror"></div>
+
+        <input id="btn" type="button" value="SUBMIT">
+        <input id="can" type="button" value="CANCEL">
+        
+        <span >
+            <ul id = "passwordConditions">
+                Password must include:
+                <li id="length">7-15 characters</li>
+                <li id="capital">at least one capital letter</li>
+                <li id="small">at least one small letter</li>
+                <li id="number">at least one number</li>
+            </ul>
+            <ul id="namecondition">
+                Name should include:
+                <li id="num">should not start with Numerical</li>
+                <li id="special">should not start with special characters</li>
+                <li id="empty">should not be empty</li>
+                <li id="namelength">consists of a minimum of 3 characters</li>
+            </ul>
+        </span>
+    </form>
+    <script src="./login.js"></script>
+</body>
+</html>
